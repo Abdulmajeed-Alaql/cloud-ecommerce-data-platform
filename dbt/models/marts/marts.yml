@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: mart_daily_sales
+    description: "Daily e-commerce sales and order metrics."
+    columns:
+      - name: date_key
+        description: "Unique calendar date key."
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        tests:
+          - not_null
+      - name: payment_total
+        tests:
+          - not_null
+
+  - name: mart_product_performance
+    description: "Aggregated sales performance by product."
+    columns:
+      - name: product_key
+        description: "Unique product key."
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        tests:
+          - not_null
+      - name: gross_sales
+        tests:
+          - not_null
+
+  - name: mart_customer_summary
+    description: "Lifetime purchasing summary by unique customer."
+    columns:
+      - name: customer_unique_id
+        description: "Unique business identifier for a customer."
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        tests:
+          - not_null
+      - name: lifetime_payment_value
+        tests:
+          - not_null
+
+  - name: mart_delivery_quality
+    description: "Delivery performance by month and customer state."
+    columns:
+      - name: delivery_quality_key
+        description: "Unique combination of month and customer state."
+        tests:
+          - not_null
+          - unique
+      - name: year_month
+        tests:
+          - not_null
+      - name: customer_state
+        tests:
+          - not_null
