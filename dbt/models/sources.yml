@@ -1,1 +1,14 @@
+version: 2
+
+sources:
+  - name: ecommerce_gold
+    catalog: workspace
+    schema: ecommerce_gold
+    tables:
+      - name: dim_customers
+      - name: dim_products
+      - name: dim_sellers
+      - name: dim_date
+      - name: fct_orders
+      - name: fct_order_items
 
